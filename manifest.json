@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "Qiscus Hardcoded",
+  "description": "Qiscus chrome extension - hardcoded",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html"
+  }
+}
