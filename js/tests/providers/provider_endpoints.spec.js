@@ -19,15 +19,15 @@ describe('Unit: Provider Endpoints', function() {
     });
 
     it("can produce login url using testing string", function() {
-        provider.setBaseUrl('testing');
-        provider.setLoginUrl('/login');
+        provider.setMainUrl('testing/');
+        provider.setLoginUrl('login');
 
         var loginUrl = provider.getLoginUrl();
         expect(loginUrl).toBe('testing/login');
     });
 
     it("can produce logout url using testing string", function() {
-        provider.setBaseUrl('testing');
+        provider.setMainUrl('testing');
         provider.setLogoutUrl('/logout');
 
         var logoutUrl = provider.getLogoutUrl();

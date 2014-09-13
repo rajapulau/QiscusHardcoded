@@ -7,18 +7,19 @@ setup all Qiscus api endpoints
 */
 providers.provider('QEndPoints', function() {
     //base url to send api
-    var baseUrl = 'http://qisc.us/api/v1/';
+    var baseUrl = 'https://qisc.us/api/mobile/';
+    var mainUrl = 'https://qisc.us/';
 
     /*
     all endpoints
     */
     var endpoints = {};
-        endpoints.login     = '';
-        endpoints.logout    = '';
-        endpoints.postComment   = '';
+        endpoints.login     = 'users/sign_in.json';
+        endpoints.logout    = 'users/sign_out';
+        endpoints.postComment   = 'postcomment';
         endpoints.getComments   = '';
-        endpoints.getTopics     = '';
-        endpoints.getRooms      = '';
+        endpoints.getTopics     = 'topics';
+        endpoints.getRooms      = 'rooms';
 
     /*
     build an url for api request
@@ -38,14 +39,17 @@ providers.provider('QEndPoints', function() {
             setBaseUrl: function(url) {
                 baseUrl = url;
             },
+            setMainUrl: function(url) {
+                mainUrl = url;
+            },
             resetBaseUrl: function() {
                 baseUrl = 'http://qisc.us/api/';
             },
             getLoginUrl: function() {
-                return buildUrl(endpoints.login);
+                return mainUrl + endpoints.login;
             },
             getLogoutUrl: function() {
-                return buildUrl(endpoints.logout);
+                return mainUrl + endpoints.logout;
             },
             getPostCommentUrl: function() {
                 return buildUrl(endpoints.postComment);
@@ -90,10 +94,10 @@ providers.provider('QHardCoded', function() {
     data to hardcoded
     */
     var hardcoded = {};
-        hardcoded.user      = '';
-        hardcoded.password  = '';
-        hardcoded.roomId    = '';
-        hardcoded.topicId   = '';
+        hardcoded.user      = 'hrxoneread@yahoo.com';
+        hardcoded.password  = 'testing_chrome';
+        hardcoded.roomId    = '2246';
+        hardcoded.topicId   = '4427';
 
     /*
     getter methods
