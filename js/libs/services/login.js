@@ -31,6 +31,11 @@ services.service('QServiceLogin',['QHttp', function(qhttp) {
             'user[password]': password
         };
 
+        /*
+        setup http properties:
+        > urlendpoint
+        > data to send
+        */
         qhttp.setUrl(url);
         qhttp.setData(data);
 
