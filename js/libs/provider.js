@@ -7,7 +7,7 @@ setup all Qiscus api endpoints
 */
 providers.provider('QEndPoints', function() {
     //base url to send api
-    var baseUrl = 'https://qisc.us/api/mobile/';
+    var baseUrl = 'https://qisc.us/api/v1/mobile/';
     var mainUrl = 'https://qisc.us/';
 
     /*
