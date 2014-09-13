@@ -5,14 +5,13 @@ var services = angular.module('qiscus.services', []);
     /*
     call api web service
     */
-    services.service('QHttp', ['$http','$q', function($http,$q) {
+    services.service('QHttp', ['$http', function($http) {
 
         /*
         private properties
         */
         var _url, _params, _data;
         var _options = {};
-        var _q = $q.defer();
 
         /*
         make $http option object
