@@ -66,4 +66,72 @@ describe('Unit: Service QHttp', function() {
         expect(options.url).toEqual(this.url);
     });
 
+    it('should can to mock success connection', inject(function($httpBackend) {
+
+        /*
+        data to send
+        */
+        var body = {
+            'user[email]': 'hrxoneread@yahoo.com',
+            'user[password]': 'testing_chrome'
+        };
+
+        /*
+        mocking $http
+        */
+        var mock = $httpBackend.expect('POST', this.url, body);
+            mock.respond(200, {success: true, token: 123});
+
+        //setup url to access
+        qhttp.setUrl(this.url);
+
+        //setup data body
+        qhttp.setData(body);
+
+        var connection = qhttp.connect('POST');
+            connection.then(function(data) {
+                expect(data.data).toBeDefined();
+                expect(data.data.success).toBeDefined();
+                expect(data.data.token).toBeDefined();
+                expect(data.data.success).toEqual(true);
+                expect(data.data.token).toEqual(123);
+            });
+
+        $httpBackend.flush();
+    }));
+
+    it('should can to mock error connection', inject(function($httpBackend) {
+
+        /*
+        data to send
+        */
+        var body = {
+            'user[email]': 'testing_email',
+            'user[password]': 'testing_password'
+        };
+
+        /*
+        mocking $http
+        */
+        var mock = $httpBackend.expect('POST', this.url, body);
+            mock.respond(200, {success: false, errors: ['Login failed.']});
+
+        //setup url to access
+        qhttp.setUrl(this.url);
+
+        //setup data body
+        qhttp.setData(body);
+
+        var connection = qhttp.connect('POST');
+            connection.success(function(data) {
+                expect(data.success).toBeDefined();
+                expect(data.errors).toBeDefined();
+                expect(data.token).not.toBeDefined();
+                expect(data.success).toBeFalsy();
+                expect(data.errors[0]).toEqual('Login failed.');
+            });
+
+        $httpBackend.flush();
+    }));
+
 });

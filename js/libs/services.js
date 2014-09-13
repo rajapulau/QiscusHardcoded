@@ -21,7 +21,7 @@ var services = angular.module('qiscus.services', []);
 
             //set http method verb: GET,POST,etc
             _options.method = verb;
-            
+
             /*
             setup url string
             */
@@ -72,13 +72,6 @@ var services = angular.module('qiscus.services', []);
         */
         this.connect = function(verb) {
             var options = this.buildOptions(verb);
-
-            $http(options).success(function(data) {
-                _q.resolve(data);
-            }).error(function(data) {
-                _q.reject(data);
-            })
-
-            return _q.promise;
+            return $http(options);
         }
     }]);
