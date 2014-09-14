@@ -63,7 +63,7 @@ describe('Unit: Service QServiceLogin', function() {
     test if provider provide login url endpoint
     */
     it('should provide login endpoint url', function() {
-        expect(this.loginUrl).toEqual('https://qisc.us/users/sign_in.json');
+        expect(this.loginUrl).toEqual('https://qiscus-staging.herokuapp.com/users/sign_in.json');
     });
 
     /*
@@ -87,10 +87,7 @@ describe('Unit: Service QServiceLogin', function() {
     */
     it('should can login using all provided data', function() {
 
-        var body = {
-            'user[email]': 'hrxoneread@yahoo.com',
-            'user[password]': 'testing_chrome'
-        };
+        var body = 'user[email]=hrxoneread@yahoo.com&user[password]=testing_chrome';
 
         //simulate if $http success
         this.ifHttpBackendSuccess(this.loginUrl, body);
@@ -102,6 +99,7 @@ describe('Unit: Service QServiceLogin', function() {
             check on success callback
             */
             loggedIn.success(function(data) {
+
                 expect(data.status).toBeDefined();
                 expect(data.token).toBeDefined();
                 expect(data.status).toEqual(true);
@@ -113,10 +111,7 @@ describe('Unit: Service QServiceLogin', function() {
 
     it('should cannot login', function() {
 
-        var body = {
-            'user[email]': 'hrxoneread@yahoo.com',
-            'user[password]': 'testing_chrome'
-        };
+        var body = 'user[email]=hrxoneread@yahoo.com&user[password]=testing_chrome';
 
         //simulate if $http success
         this.ifHttpBackendError(this.loginUrl, body);

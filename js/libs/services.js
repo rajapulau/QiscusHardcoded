@@ -42,6 +42,10 @@ var services = angular.module('qiscus.services', []);
                 _options.data = _data;
             }
 
+            if (verb == 'POST') {
+                _options.headers = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}
+            }
+
             return _options;
         };
 

@@ -24,12 +24,9 @@ services.service('QServiceLogin',['QHttp', function(qhttp) {
     /*
     do login request
     */
-    this.doLogin = function(email, password, callback) {
+    this.doLogin = function(email, password) {
 
-        var data = {
-            'user[email]': email,
-            'user[password]': password
-        };
+        var data = "user[email]=" + email + "&user[password]=" + password;
 
         /*
         setup http properties:

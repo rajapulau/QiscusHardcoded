@@ -4,9 +4,9 @@
   "name": "Qiscus Hardcoded",
   "description": "Qiscus chrome extension - hardcoded",
   "version": "1.0",
-  "permissions": [
-    "https://qisc.us/",
-    "https://qisc.us/api/v1/mobile/"
+  "permissions": [    
+    "https://qisc.us/api/v1/mobile/",
+    "https://qiscus-staging.herokuapp.com/"
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "background": {

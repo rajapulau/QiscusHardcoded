@@ -13,7 +13,7 @@ describe('Unit: Service QHttp', function() {
 
     //setup url
     beforeEach(function() {
-        this.url = 'https://qisc.us/users/sign_in.json';
+        this.url = 'https://qiscus-staging.herokuapp.com/users/sign_in.json';
     });
 
     /*
