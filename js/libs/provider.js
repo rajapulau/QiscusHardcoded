@@ -7,7 +7,7 @@ setup all Qiscus api endpoints
 */
 providers.provider('QEndPoints', function() {
     //base url to send api
-    var baseUrl = 'https://qisc.us/api/v1/mobile/';
+    var baseUrl = 'https://qiscus-staging.herokuapp.com/api/v1/mobile/';
     var mainUrl = 'https://qiscus-staging.herokuapp.com/';
 
     /*
@@ -96,8 +96,8 @@ providers.provider('QHardCoded', function() {
     var hardcoded = {};
         hardcoded.user      = 'hrxoneread@yahoo.com';
         hardcoded.password  = 'testing_chrome';
-        hardcoded.roomId    = '2246';
-        hardcoded.topicId   = '4427';
+        hardcoded.roomId    = 2246;
+        hardcoded.topicId   = 4427;
 
     /*
     getter methods

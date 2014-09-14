@@ -52,14 +52,6 @@ describe('Unit: Service QServiceLogin', function() {
     });
 
     /*
-    test if provider provide email and password data
-    */
-    it('should provide hardcoded email and password data', function() {
-        expect(this.user).toEqual('hrxoneread@yahoo.com');
-        expect(this.password).toEqual('testing_chrome');
-    });
-
-    /*
     test if provider provide login url endpoint
     */
     it('should provide login endpoint url', function() {
