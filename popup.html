@@ -76,11 +76,11 @@
                 </li>
               </ul>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer" ng-controller="CommentController as comment">
               <div class="input-group">
-                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                <input id="btn-input" ng-model="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                 <span class="input-group-btn">
-                  <button class="btn btn-warning btn-sm" id="btn-chat">
+                  <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="comment.sendChat()">
                     Send</button>
                 </span>
               </div>
@@ -97,6 +97,8 @@
     <script src="js/libs/factories.js"></script>
     <script src="js/libs/services.js"></script>
     <script src="js/libs/services/login.js"></script>
+    <script src="js/libs/services/comment.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/libs/controllers/CommentController.js"></script>
   </body>
 </html>
