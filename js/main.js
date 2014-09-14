@@ -9,7 +9,7 @@ var qiscus = angular.module('qiscus', [
 /*
 application main method
 */
-qiscus.run(['$rootScope', '$injector', function($rootScope, $injector) {
+qiscus.run(['$rootScope', '$injector', function($rootScope, $injector, $timeout) {
 
     var endpoints = $injector.get('QEndPoints');
     var hardcoded = $injector.get('QHardCoded');
@@ -40,9 +40,9 @@ qiscus.run(['$rootScope', '$injector', function($rootScope, $injector) {
     /*
     watch token_url properties changes
     */
-    $rootScope.$watch('token_url', function() {
-        if ($rootScope !== 'undefined') {
-            $rootScope.$broadcast('setup_token_value', $rootScope.token_value);
+    $rootScope.$watch('token_value', function(newVal, oldVal) {
+        if (newVal) {
+            $rootScope.$broadcast('init_token_value', newVal);
         }
     });
 
