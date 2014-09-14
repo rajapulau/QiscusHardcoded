@@ -9,7 +9,7 @@ var qiscus = angular.module('qiscus', [
 /*
 application main method
 */
-qiscus.run(['$rootScope', '$injector', function($rootScope, $injector, $timeout) {
+qiscus.run(['$rootScope', '$injector', function($rootScope, $injector) {
 
     var endpoints = $injector.get('QEndPoints');
     var hardcoded = $injector.get('QHardCoded');
@@ -38,11 +38,12 @@ qiscus.run(['$rootScope', '$injector', function($rootScope, $injector, $timeout)
         });
 
     /*
-    watch token_url properties changes
+    watch token_value properties changes
+    trigger an event to broadcast to all child controllers
     */
     $rootScope.$watch('token_value', function(newVal, oldVal) {
         if (newVal) {
-            $rootScope.$broadcast('init_token_value', newVal);
+            $rootScope.$broadcast('this_token_value', newVal);
         }
     });
 
