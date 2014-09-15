@@ -33,4 +33,13 @@ services.service('QServiceComment', ['QHttp', function(qhttp) {
 
     };
 
+    /*
+     * get list of comments
+     */
+    this.getListComments = function(token, topic_id, lastcomment_id) {
+        qhttp.setUrl(url+token);
+
+        var connection = qhttp.connect('GET');
+        return connection;
+    }
 }]);
