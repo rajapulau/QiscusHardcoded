@@ -17,7 +17,7 @@ providers.provider('QEndPoints', function() {
         endpoints.login     = 'users/sign_in.json';
         endpoints.logout    = 'users/sign_out';
         endpoints.postComment   = 'postcomment';
-        endpoints.getComments   = '';
+        endpoints.getComments   = 'topic/4427/comment/100000/token/';
         endpoints.getTopics     = 'topics';
         endpoints.getRooms      = 'rooms';
 
@@ -96,6 +96,7 @@ providers.provider('QHardCoded', function() {
     var hardcoded = {};
         hardcoded.user      = 'hrxoneread@yahoo.com';
         hardcoded.password  = 'testing_chrome';
+        hardcoded.username  = 'testchrome';
         hardcoded.roomId    = 2246;
         hardcoded.topicId   = 4427;
 
@@ -115,6 +116,9 @@ providers.provider('QHardCoded', function() {
             },
             getTopic: function() {
                 return hardcoded.topicId;
+            },
+            getUsername: function() {
+                return hardcoded.username;
             }
         }
     }
