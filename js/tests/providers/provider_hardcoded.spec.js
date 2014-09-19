@@ -17,10 +17,14 @@ describe('Unit: Provider HardCoded', function() {
     });
 
     it("can produce hardcoded room id", function() {
-        expect(provider.getRoom()).toBe('2246');
+        expect(provider.getRoom()).toBe(2246);
     });
 
     it("can produce hardcoded topic id", function() {
-        expect(provider.getTopic()).toBe('4427');
+        expect(provider.getTopic()).toBe(4427);
+    });
+
+    it("can produce hardcoded username", function() {
+        expect(provider.getUsername()).toBe('testchrome');
     });
 });

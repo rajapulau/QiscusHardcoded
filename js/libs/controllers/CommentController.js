@@ -8,6 +8,8 @@ qiscus.controller('CommentController', [
 
     function($scope, endpoint, hardcoded, comment) {        
 
+        var _this = this;
+        _this.message = '';
         /*
         send chat message to server
         */
@@ -15,7 +17,7 @@ qiscus.controller('CommentController', [
             var url = endpoint.getPostCommentUrl();
             var topic_id = hardcoded.getTopic();
             var token = $scope.token_value;
-            var message = $scope.message;
+            var message = _this.message;
 
             /*
             send chat message to server
@@ -30,6 +32,13 @@ qiscus.controller('CommentController', [
                     if (data.error) {
                         alert('error authorization.');
                     }
+                    var dataComment = {
+                      id: data.comment_id,
+                      message: data.message,
+                      username_as: hardcoded.getUsername(),
+                      created_at: data.sent
+                    };
+                    $scope.$emit('commentData', dataComment);
                 });
 
                 /*
@@ -40,7 +49,7 @@ qiscus.controller('CommentController', [
                 });
 
             //clean up message
-            $scope.message = '';
+            _this.message = '';
         };
 
     }
