@@ -6,10 +6,11 @@ qiscus.controller('CommentController', [
     'QHardCoded',
     'QServiceComment',
 
-    function($scope, endpoint, hardcoded, comment) {        
+    function($scope, endpoint, hardcoded, comment) {
 
         var _this = this;
         _this.message = '';
+        
         /*
         send chat message to server
         */

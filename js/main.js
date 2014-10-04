@@ -47,4 +47,6 @@ qiscus.run(['$rootScope', '$injector', function($rootScope, $injector) {
         }
     });
 
+    chrome.browserAction.setBadgeText({text: ''});
+
 }]);
