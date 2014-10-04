@@ -4,13 +4,14 @@
   "name": "Qiscus Hardcoded",
   "description": "Qiscus chrome extension - hardcoded",
   "version": "1.0",
-  "permissions": [    
+  "permissions": [
     "https://qisc.us/api/v1/mobile/",
-    "https://qiscus-staging.herokuapp.com/"
+    "https://qiscus-staging.herokuapp.com/",    
+    "notifications"
   ],
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://js.pusher.com https://cdnjs.cloudflare.com; object-src 'self'",
   "background": {
-    "scripts": ["js/vendor/angularjs/angular.min.js"]
+    "page": "background.html"
   },
   "browser_action": {
     "default_icon": "images/icon.png",
