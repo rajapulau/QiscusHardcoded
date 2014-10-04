@@ -7,22 +7,25 @@ qiscus.controller('ListCommentsController', [
     'QServiceComment',
 
     function($scope, endpoint, hardcoded, comment) {
+      var url = endpoint.getListCommentsUrl();
+      var topic_id = hardcoded.getTopic();
+      var lastcomment_id = 100000;
+
+      comment.setUrl(url);
+
       var listComments = this;
+      listComments.comments = [];
+      listComments.isMyComment = function(username){
+        return hardcoded.getUsername() === username;
+      };
+
       $scope.$on('this_token_value', function(){
-        var url = endpoint.getListCommentsUrl();
-        var topic_id = hardcoded.getTopic();
-        var token = $scope.token_value;
-        var lastcomment_id = 100000;
-
-        listComments.comments = [];
-
-        comment.setUrl(url);
-        var getComments = comment.getListComments(token, topic_id, lastcomment_id);
+        var getComments = comment.getListComments($scope.token_value, topic_id, lastcomment_id);
 
         getComments.success(function(data) {
           if (data.error) {
             console.log('error bro!');
-            // console.log(data);
+            console.log(data);
           }
           else {
             console.log('successfully retrieve');
