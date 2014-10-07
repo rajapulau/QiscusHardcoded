@@ -6,8 +6,9 @@
   "version": "1.0",
   "permissions": [
     "https://qisc.us/api/v1/mobile/",
-    "https://qiscus-staging.herokuapp.com/",    
-    "notifications"
+    "https://qiscus-staging.herokuapp.com/",
+    "notifications",
+    "storage"
   ],
   "content_security_policy": "script-src 'self' https://js.pusher.com https://cdnjs.cloudflare.com; object-src 'self'",
   "background": {

@@ -17,3 +17,10 @@ var factories = angular.module('qiscus.factories', []);
             disableStats: true
         });
     });
+
+    /*
+    setup factory for chrome api
+    */
+    factories.factory('ch', ['$window', function() {
+        return $window.chrome;
+    }]);
